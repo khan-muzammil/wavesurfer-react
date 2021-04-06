@@ -36,7 +36,7 @@ export function MultipleFileUploadField({ name }) {
 	const { getRootProps, getInputProps, isDragActive } = useDropzone({
 		onDrop,
 		accept: "audio/*",
-		maxSize: 2000 * 1024,
+		maxSize: 3000 * 1024,
 	})
 
 	return (
