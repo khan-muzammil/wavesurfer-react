@@ -8,6 +8,7 @@ import {
 	Toolbar,
 	Typography,
 } from "@material-ui/core"
+import AudioPlayer from "./components/AudioPlayer"
 
 const useStyles = makeStyles({
 	title: {
@@ -31,7 +32,7 @@ function App() {
 			<CssBaseline />
 			<Container>
 				<Box marginTop={10}>
-					<h1>Hello World</h1>
+					<AudioPlayer />
 				</Box>
 			</Container>
 		</>
