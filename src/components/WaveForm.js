@@ -12,7 +12,7 @@ export default function Waveform({
 	const [playing, setPlay] = useState(false)
 
 	useEffect(() => {
-		// setPlay(false)
+		setPlay(false)
 
 		wavesurfer.current = WaveSurfer.create({
 			container: waveformRef.current,
