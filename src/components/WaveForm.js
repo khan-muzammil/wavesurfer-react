@@ -36,10 +36,13 @@ export default function Waveform({
 			setSelectedTrack(tracks[tracks.indexOf(selectedTrack) + 1])
 			// console.log("current index ", tracks.indexOf(selectedTrack))
 		})
-		wavesurfer.current.on("ready", function () {
-			setPlay(true)
-			wavesurfer.current.play()
-		})
+		wavesurfer.current.on(
+			"ready",
+			setTimeout(() => {
+				setPlay(true)
+				wavesurfer.current.play()
+			}, 3000)
+		)
 
 		return () => wavesurfer.current.destroy()
 
