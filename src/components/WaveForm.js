@@ -1,13 +1,18 @@
 import React, { useEffect, useRef, useState } from "react"
 import WaveSurfer from "wavesurfer.js"
 
-export default function Waveform({ url }) {
+export default function Waveform({
+	url,
+	selectedTrack,
+	setSelectedTrack,
+	tracks,
+}) {
 	const waveformRef = useRef(null)
 	const wavesurfer = useRef(null)
 	const [playing, setPlay] = useState(false)
 
 	useEffect(() => {
-		setPlay(false)
+		// setPlay(false)
 
 		wavesurfer.current = WaveSurfer.create({
 			container: waveformRef.current,
@@ -23,12 +28,17 @@ export default function Waveform({ url }) {
 			// Use the PeakCache to improve rendering speed of large waveforms.
 			partialRender: true,
 		})
-
-		wavesurfer.current.load(url)
+		if (url) {
+			wavesurfer.current.load(url)
+		}
 
 		wavesurfer.current.on("finish", function () {
-			setPlay(false)
-			wavesurfer.current.stop()
+			setSelectedTrack(tracks[tracks.indexOf(selectedTrack) + 1])
+			// console.log("current index ", tracks.indexOf(selectedTrack))
+		})
+		wavesurfer.current.on("ready", function () {
+			setPlay(true)
+			wavesurfer.current.play()
 		})
 
 		return () => wavesurfer.current.destroy()
