@@ -23,7 +23,7 @@ function App() {
 			<AppBar position="fixed">
 				<Toolbar variant="dense">
 					<Typography variant="h6" className={classes.title}>
-						Deepsync-Wavesurfer
+						React-Wavesurfer
 					</Typography>
 				</Toolbar>
 			</AppBar>
